@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Scholarships</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .scholarship {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .scholarship h3 {
+            margin-bottom: 10px;
+        }
+
+        .scholarship p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Women's Scholarships</h1>
+    </header>
+    <main>
+        <section id="search-filter">
+            <h2>Search & Filter</h2>
+            <form id="search-form">
+                <label for="field-of-study">Field of Study:</label>
+                <select id="field-of-study">
+                    <option value="">All</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="community">Community:</label>
+                <select id="community">
+                    <option value="">All</option>
+                    <option value="OC">OC</option>
+                    <option value="BC">BC</option>
+                    <option value="MBC">MBC</option>
+                    <option value="SC/ST">SC/ST</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="first-graduate">First Graduate:</label>
+                <select id="first-graduate">
+                    <option value="">All</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="annual-family-income">Annual Family Income:</label>
+                <select id="annual-family-income">
+                    <option value="">All</option>
+                    <option value="below-3-lakhs">Below 3 lakhs</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="percentage">Percentage:</label>
+                <select id="percentage">
+                    <option value="">All</option>
+                    <option value="above-85">Above 85%</option>
+                    <option value="75-85">75-85%</option>
+                    <option value="50-75">50-75%</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="medium">Medium:</label>
+                <select id="medium">
+                    <option value="">All</option>
+                    <option value="tamil">Tamil</option>
+                    <option value="english">English</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+        </section>
+        <section id="scholarships">
+            <h2>Available Scholarships</h2>
+            <div id="scholarship-results">
+                <!-- Scholarship results will be displayed here -->
+            </div>
+        </section>
+     
+    </main>
+    <footer>
+        <!-- Recommendations -->
+<section id="feedback">
+    <h2>FEEDBACK</h2>
+    <div style="clear:both;"></div>
+    <div class="feedback" id="feedback">
+        <div class="feedback">
+            <span>&#8220;</span>
+            Useful website for newly entered college students.
+            <span>&#8221;</span>
+        </div>
+        <div class="feedback">
+            <span>&#8220;</span>
+            Easy to search and filtering option saves a lot of time and energy.
+            <span>&#8221;</span>
+        </div>
+        <div class="feedback">
+            <span>&#8220;</span>
+           Need improvement.
+            <span>&#8221;</span>
+        </div>
+    </div>
+</section>
+
+<!-- Recommendation Form -->
+<section id="contact">
+    <div class="flex_center">
+        <fieldset>
+            <legend class="introduction">Leave a Recommendation</legend>          
+            <input type="text" placeholder="Name (Optional)"> <br/>
+            <textarea id="new_feedback" cols="500" rows="10" placeholder="Message"></textarea>
+            <div class="flex_center">
+                <button id="recommend_btn" onclick="addRecommendation()">Submit</button>
+            </div>
+        </fieldset>
+    </div>
+    </section>
+    
+    <div class="iconbutton">
+        <a href="#home">
+          <!--Add the code here for the logo to appear and the icon to be actionable-->
+         
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="63px">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </a>
+    </div>
+    
+    <div class="popup" id="popup" class="flex_center">
+        <img src="images.png/checkmark--outline.svg"/>
+        <h3>Thanks for leaving a recommendation !</h3>
+        <button >Ok</button>
+    </div>
+        <p>&copy; 2024 Women's Scholarships</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sample scholarships data
+            const scholarships = [
+                {
+                    name: "STEM Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "OC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above-85",
+                    medium: "english",
+                    amount: "$5000"
+                },{
+                    name: "RATAN TATA Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "BC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above-85",
+                    medium: "tamil",
+                    amount: "$25000"
+                },{
+                    name: "MERIT CUM BASED Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "All",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "75-85",
+                    medium: "All ",
+                    amount: "$10000"
+                },{
+                    name: "NTPC Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "SC/ST",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "Other",
+                    medium: "tamil",
+                    amount: "$1500"
+                },{
+                    name: "SANKOOR WOMEN'S Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "tamil",
+                    amount: "$2400"                  
+
+                },{
+                    name: "VIT UNIVERSITY IGNITE  Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "OC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "Other",
+                    percentage: "above 85",
+                    medium: "english",
+                    amount: "$14000"
+                },{
+                    name: "KISHORE VAIGYNAIK PROTSAHAN YOJANA Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "BC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "english",
+                    amount: "$4000-7000"
+                },{
+                    name: "ONGC Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "SC/ST",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "Other",
+                    percentage: "50-75",
+                    medium: "tamil",
+                    amount: "$1500"
+                    
+                },{
+
+                    name: "NORTH-SOUTH FOUNDATION Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "MBC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "Other",
+                    amount: "$5000-1500"
+                },{
+                    name: "PANASONIC Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "OC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "english",
+                    amount: "$8000"
+                },{
+                    name: "LIC GOLDEN JUBILEE Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "BC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "tamil",
+                    amount: "$60000"
+                },{
+                    name: "PRAGATI Scholarship",
+                    fieldOfStudy: "Engineering",
+                    community: "BC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "Other",
+                    amount: "$50000"
+                },
+                {
+                    name: "GANDHI MEMORIAL EDUCATIONAL SCHEME",
+                    fieldOfStudy: "Arts",
+                    community: "BC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$15000"
+                },
+                {
+                    name: " NATIONAL SCHOLARSHIP SCHEME",
+                    fieldOfStudy: "Arts",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "english",
+                    amount: "$12000"
+                },
+                {
+                    name: " CHILDREN REPATRIATE FROM BURMA SCHOLARSHIP ",
+                    fieldOfStudy: "Arts",
+                    community: "SC/ST",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "above 85",
+                    medium: "tamil",
+                    amount: "$6000"
+                },
+                {
+                    name: " STATE GOVERNMENT MERIT SCHOLARSHIP ",
+                    fieldOfStudy: "Arts",
+                    community: "Other",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "tamil",
+                    amount: "$12000"
+                },
+                {
+                    name: " EVR NAGAMMAI MEMORIAL SCHOLARSHIP ",
+                    fieldOfStudy: "Arts",
+                    community: "BC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "Other",
+                    medium: "english",
+                    amount: "$12000"
+                },
+                {
+                    name: " UNDER TAMILNADU EDUCATION SCHOLARSHIP ",
+                    fieldOfStudy: "Arts",
+                    community: "MBC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$100000"
+                },
+                {
+                    name: " CENTRAL GOVERNMENTAL LABOUR WELFARE SCHOLARSHIP ",
+                    fieldOfStudy: "Arts",
+                    community: "SC/ST",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "english",
+                    amount: "$15000"
+                },
+                {
+                    name: "NATION WIDE EDUCATION Scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "Other",
+                    percentage: "above-85",
+                    medium: "english",
+                    amount: "$50000"
+                },
+                {
+                    name: "ALL INDIA PRE-MEDICAL Scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "OC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$25000"
+                },
+                {
+                    name: "NURTURING CLINICAL SCIENTISTS Scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "BC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "english",
+                    amount: "$10000"
+                },
+                {
+                    name: " MINORITY scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "OC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$25000"
+                },              
+                {
+                    name: " L'OREAL INDIA Scholarship for young women",
+                    fieldOfStudy: "Medical",
+                    community: "SC/ST",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "english",
+                    amount: "$2,50,000"
+                },
+                {
+                    name: "SAHU JOIN TRUST Scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "OC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$25000"
+                },              
+                {
+                    name: "BIGYANI KANYA MEDHA BRITTI Scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "Other",
+                    medium: "english",
+                    amount: "$3000"
+                },             
+                {
+                    name: "GSH SCHOLARS PROGRAMME",
+                    fieldOfStudy: "Medical",
+                    community: "OC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "50-75",
+                    medium: "tamil",
+                    amount: "$1,00,000"
+                },
+                {
+                    name: "NIRANKARI  RAJMATA Scholarship",
+                    fieldOfStudy: "Medical",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "english",
+                    amount: "$50,000"
+                },     
+                {
+                    name: "INDIA AGRI FELLOWSHIP ",
+                    fieldOfStudy: "Agriculture",
+                    community: "BC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$30,000"
+                },
+                {
+                    name: "SAARAC AGRICULTURAL Scholarship ",
+                    fieldOfStudy: "Agriculture",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "english",
+                    amount: "$7000"
+                },
+                {
+                    name: "NETAJI SUBHAS FELLOWSHIP ",
+                    fieldOfStudy: "Agriculture",
+                    community: "SC/ST",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "above 85",
+                    medium: "tamil",
+                    amount: "$12000"
+                },              
+                {
+                    name: "R.N.LAKHMIPATHI AND SMT NAGARATHNAMMA MERIT Scholarship ",
+                    fieldOfStudy: "Agriculture",
+                    community: "Other",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "english",
+                    amount: "$125000"
+                },
+                {
+                    name: "UAS BANGALORE SHARANS VEDANTH Scholarship ",
+                    fieldOfStudy: "Agriculture",
+                    community: "Other",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "tamil",
+                    amount: "$1,60,000"
+                },
+                {
+                    name: "LSAT INDIA Scholarship ",
+                    fieldOfStudy: "Other",
+                    community: "OC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "above 85",
+                    medium: "english",
+                    amount: "$4 lakhs"
+                },
+                {
+                    name: "GEV MEMORIAL MERIT Scholarship ",
+                    fieldOfStudy: "Other",
+                    community: "BC",
+                    firstGraduate: "no",
+                    annualFamilyIncome: "Other",
+                    percentage: "75-85",
+                    medium: "tamil",
+                    amount: "$50,000-2 lakhs"
+                },
+                {
+                    name: " ADITYA BIRLA Scholarship ",
+                    fieldOfStudy: "Other",
+                    community: "MBC",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "50-75",
+                    medium: "english",
+                    amount: "$1,80,000"
+                },
+                {
+                    name: "CENTRAL SECTOR SCHEME Scholarship ",
+                    fieldOfStudy: "Other",
+                    community: "SC/ST",
+                    firstGraduate: "yes",
+                    annualFamilyIncome: "below-3-lakhs",
+                    percentage: "Other",
+                    medium: "english",
+                    amount: "$20,000"
+                }
+                // Add more scholarship objects as needed
+            ];
+
+            const filterForm = document.getElementById("search-form");
+            const scholarshipResults = document.getElementById("scholarship-results");
+
+            // Function to display filtered scholarship results
+            function displayScholarships(scholarships) {
+                scholarshipResults.innerHTML = ""; // Clear previous results
+                scholarships.forEach(scholarship => {
+                    const scholarshipDiv = document.createElement("div");
+                    scholarshipDiv.classList.add("scholarship");
+                    scholarshipDiv.innerHTML = `
+                        <h3>${scholarship.name}</h3>
+                        <p><strong>Field of Study:</strong> ${scholarship.fieldOfStudy}</p>
+                        <p><strong>Community:</strong> ${scholarship.community}</p>
+                        <p><strong>First Graduate:</strong> ${scholarship.firstGraduate}</p>
+                        <p><strong>Annual Family Income:</strong> ${scholarship.annualFamilyIncome}</p>
+                        <p><strong>Percentage:</strong> ${scholarship.percentage}</p>
+                        <p><strong>Medium:</strong> ${scholarship.medium}</p>
+                        <p><strong>Amount:</strong> ${scholarship.amount}</p>
+                    `;
+                    scholarshipResults.appendChild(scholarshipDiv);
+                });
+            }
+            // Function to fetch and display feedback
+const fetchFeedback = async () => {
+  try {
+    // Send GET request to backend route to fetch feedback
+    const response = await fetch('/api/feedback');
+    const data = await response.json();
+
+console.log('Feedback data:',data);
+
+    if (response.ok) {
+      // Display feedback on the webpage
+      displayFeedback(data);
+    } else {
+      // Display error message
+      console.error('Failed to fetch feedback:', data.message);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while fetching feedback.');
+  }
+};
+
+// Function to display feedback on the webpage
+const displayFeedback = (feedbackData) => {
+  const feedbackList = document.getElementById('feedbackList');
+
+  // Clear previous feedback items
+  feedbackList.innerHTML = '';
+
+  // Display each feedback item in the list
+  feedbackData.forEach(feedback => {
+    const feedbackItem = document.createElement('li');
+    feedbackItem.textContent = feedback.message; // Assuming feedback object has a 'message' property
+    feedbackList.appendChild(feedbackItem);
+  });
+};
+
+// Call fetchFeedback function to load feedback when the page loads
+document.addEventListener('DOMContentLoaded', fetchFeedback);
+
+
+            // Function to filter scholarships based on user selections
+            function filterScholarships(event) {
+                event.preventDefault(); // Prevent form submission
+                const fieldOfStudy = document.getElementById("field-of-study").value;
+                const community = document.getElementById("community").value;
+                const firstGraduate = document.getElementById("first-graduate").value;
+                const annualFamilyIncome = document.getElementById("annual-family-income").value;
+                const percentage = document.getElementById("percentage").value;
+                const medium = document.getElementById("medium").value;
+
+                const filteredScholarships = scholarships.filter(scholarship => {
+                    return (fieldOfStudy === "" || scholarship.fieldOfStudy === fieldOfStudy) &&
+                           (community === "" || scholarship.community === community) &&
+                           (firstGraduate === "" || scholarship.firstGraduate === firstGraduate) &&
+                           (annualFamilyIncome === "" || scholarship.annualFamilyIncome === annualFamilyIncome) &&
+                           (percentage === "" || scholarship.percentage === percentage) &&
+                           (medium === "" || scholarship.medium === medium);
+                });
+
+                displayScholarships(filteredScholarships);
+            }
+
+            // Event listener for form submission
+            filterForm.addEventListener("submit", filterScholarships);
+
+            // Display all scholarships initially
+            displayScholarships(scholarships);
+        });
+    </script>
+</body>
+</html>
